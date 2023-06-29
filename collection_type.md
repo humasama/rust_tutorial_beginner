@@ -30,8 +30,8 @@ let a_part_slice: &[usize] = &a[0..4]; // 1, 2, 3, 4
 
 ## Type Cast
 1. `Vec<T> -> Array [T; N]`
-
-It requires the size of array os equal to the element number of vector.
+- It translates vector to array, so the vector is moved.
+- It requires the size of array os equal to the element number of vector.
 ```
 // convert success
 let v: Vec<usize> = vec![1, 2, 3, 4, 5, 6];
@@ -48,6 +48,7 @@ let v2a: [usize; 3] = v.try_into().unwrap_or_else(|v: Vec<usize>| panic!("Requir
 ```
 
 2. `Array [T; N] -> Vec<T>`
+- It allocates memory in heap to hold elements in vector.
 ```
 let a: [usize; 6] = [1, 2, 3, 4, 5, 6];
 let a_slice: &[usize] = a.as_slice();
@@ -55,4 +56,12 @@ let a_part_slice: &[usize] = &a[0..4];
 let a2v = a_slice.to_owned();
 let a2v_part = a_part_slice.to_owned();
 println!("a2v: {:?}, av2_part: {:?}", a2v, a2v_part); // a2v: [1, 2, 3, 4, 5, 6], av2_part: [1, 2, 3, 4]
+```
+
+3. `Vec<T> -> String`
+- Vector is moved after cast.
+```
+let v: Vec<usize> = vec![1, 2, 3, 4, 5, 6];
+let v2s = v.into_iter().map(|i| i.to_string()).collect::<String>();
+println!("v2s: {}", v2s); // v2s: 123456
 ```
