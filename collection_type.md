@@ -29,7 +29,7 @@ let a_part_slice: &[usize] = &a[0..4]; // 1, 2, 3, 4
 ```
 
 ## Type Cast
-1. Vec<T> -> Array [T; N].
+1. `Vec<T> -> Array [T; N]`
 
 It requires the size of array os equal to the element number of vector.
 ```
@@ -47,7 +47,7 @@ let v: Vec<usize> = vec![1, 2, 3, 4, 5, 6];
 let v2a: [usize; 3] = v.try_into().unwrap_or_else(|v: Vec<usize>| panic!("Require the vector size is 3, but it is {}", v.len()));
 ```
 
-2. Array [T; N] -> Vec<T>
+2. `Array [T; N] -> Vec<T>`
 ```
 let a: [usize; 6] = [1, 2, 3, 4, 5, 6];
 let a_slice: &[usize] = a.as_slice();
