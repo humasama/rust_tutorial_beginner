@@ -26,5 +26,9 @@ As we can find the following three important characters:
 
 The above three findings are very interesting, as they reveal a **`Design Principle`** of Rust language:
 - No matter of programming language, data stored in stack will be freed automatically by OS. To guarantee the safety, Rust only needs to take care of data in heap.
-- Rust proposes ownership for memory safety. So, ownership transfer (i.e., Move) only happens on data in heap, which frees heap memory safety.
+- **`Rust proposes ownership for memory safety`**. So, ownership transfer (i.e., Move) only happens on data in heap, which frees heap memory safety.
 - For data in stack, Rust uses Copy to handle the "ownership" concept.
+
+  ## Reference vesus Slice
+  Reference is pointer points to the **entire** varibale, and its size is 8B.
+  Slice is a reference to **part** of the variable, and its size is 16B (pointer + length).
