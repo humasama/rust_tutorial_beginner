@@ -8,6 +8,13 @@ There are two concepts are extreme important in Rust:
 As we discussed in ![Data Type](https://github.com/humasama/rust_tutorial_beginner/blob/main/Data_Type.md),
 ownership is proposed for heap data to safely free.
 
+Ownership makes Rust to make memory safety guarantees without needing a garbage collector.
+Memory is managed through a system of ownership with a set of rules that the **`compiler`** checks.
+1. Every value has an owner (i.e., variable).
+2. Assignment operation causes the data either moved or copied. Once move happens, the old variable is invalid anymore.
+3. Any group of simple scalar values can implement Copy trait. **`Nothing`** that **`requires allocation`** or is some form of resource can implement **`Copy`**.
+4. When the variable goes out of scope, the value will be **`dropped`**.
+
 ## Borrowing Check
 The Rust version of C pointer is reference.
 As we know in C, pointers can be simultaneously by threads, and C doesn't provide any limitations on pointer access.
