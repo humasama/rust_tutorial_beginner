@@ -5,7 +5,7 @@ There are two concepts are extreme important in Rust:
 2. Borrowing Check: propose for safe pointer access.
 
 ## Ownership
-As we discussed in ![Data Type](https://github.com/humasama/rust_tutorial_beginner/blob/main/Data_Type.md),
+As we discussed in [Data Type](https://github.com/humasama/rust_tutorial_beginner/blob/main/Data_Type.md),
 ownership is proposed for heap data to safely free.
 
 Ownership makes Rust to make memory safety guarantees without needing a garbage collector.
