@@ -7,7 +7,8 @@ The below table shows common data type information.
 | char | let x: char = '1' | 4 | stack | variable and value are stored together | - | Copy |
 | u8 | let x: u8 = 1 | 1 | stack | variable and value are stored together | - | Copy |
 | Array, [T; num] | let x: [u8; 10] = [1; 10] | mem::size_of::<[u8; 3]>() | stack | variable and value are stored together | - | Copy |
-| Array slice, &[T] | let as: [u8; 3] = &x[0..3] | 16 (8B pointer, 8B length) | stack | stack | not owner | Copy |
+| Array reference, &[T; num] | let rx: &[u8; 10] = &x | mem::size_of::<[u8; 3]>() | stack | variable and value are stored together | - | Copy |
+| Slice, &[T] | let as: &[u8] = &x[0..3] | 16 (8B pointer, 8B length) | stack | stack | not owner | Copy |
 |||||||
 | String | let s = String::from("hello") | 24 (8B pointer, 8B capacity, 8B length) | stack | **`Heap`** | owner | **`Move`** |
 | &String (String reference) | let ss = &s | 8 (8B pointer) | stack | stack | not owner | Copy |
@@ -15,7 +16,7 @@ The below table shows common data type information.
 |||||
 | Vec | let v = vec![1, 2, 3] | 24 (8B pointer, 8B capacity, 8B length) | stack | **`Heap`** | owner | **`Move`** |
 | &Vec (Vec reference) | let vs = &v | 8 (8B pointer) | stack | stack | not owner | Copy |
-| Vec slice, &[T] | let vs = &v.as_slice() | 16 (8B pointer, 8B length) | stack | stack | not owner | Copy |
+| Slice, &[T] | let vs = &v.as_slice() | 16 (8B pointer, 8B length) | stack | stack | not owner | Copy |
 ||||||
 | Box<T> | let b = Box::new(u8) | 8 (8B pointer) | stack | **`Heap`** | owner | **`Move`** |
 
