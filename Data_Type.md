@@ -11,8 +11,8 @@ The below table shows common data type information.
 | Slice, &[T] | let as: &[u8] = &x[0..3] | 16 (8B pointer, 8B length) | stack | stack | not owner | Copy |
 |||||||
 | String | let s = String::from("hello") | 24 (8B pointer, 8B capacity, 8B length) | stack | **`Heap`** | owner | **`Move`** |
-| String reference, &String | let ss = &s | 8 (8B pointer) | stack | stack | not owner | Copy |
-| String slice, &str | let s: &str = "123" | 16 (8B pointer, 8B length) | stack | .data section | not owner | Copy |
+| String Reference, &String | let ss = &s | 8 (8B pointer) | stack | stack | not owner | Copy |
+| String Slice, &str | let s: &str = "123" | 16 (8B pointer, 8B length) | stack | .data section | not owner | Copy |
 |||||
 | Vec | let v = vec![1, 2, 3] | 24 (8B pointer, 8B capacity, 8B length) | stack | **`Heap`** | owner | **`Move`** |
 | Vec Reference, &Vec | let vs = &v | 8 (8B pointer) | stack | stack | not owner | Copy |
